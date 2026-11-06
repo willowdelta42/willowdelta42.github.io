@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人人美剧电脑版-美剧在线观看_电脑版下载安装与使用</title>
+<meta name="description" content="人人美剧电脑版首页，介绍在电脑上观看美剧的方式、常见剧集分类与使用要点，提供电脑版下载入口与常见问题说明。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1626'/%3E%3Crect x='12' y='20' width='40' height='27' rx='5' fill='none' stroke='%23ffc247' stroke-width='4'/%3E%3Cpath d='M27 28 L40 33.5 L27 39 Z' fill='%23ffc247'/%3E%3Cpath d='M20 52 h24' stroke='%23ffc247' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0f1626;
+  --ink-2:#1b2438;
+  --paper:#f6f4ef;
+  --paper-2:#fffdf9;
+  --gold:#ffc247;
+  --gold-deep:#e8a51d;
+  --line:#e3ded3;
+  --muted:#5d6472;
+  --red:#c8402f;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink-2);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* header */
+.site-header{
+  background:var(--ink);
+  color:#f3f1ea;
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid rgba(255,194,71,.18);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:66px;padding:10px 0;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em;font-size:17px}
+.brand svg{width:34px;height:34px;flex:none}
+.brand .dot{color:var(--gold)}
+nav.main-nav{display:flex;gap:22px;font-size:14.5px;flex-wrap:wrap}
+nav.main-nav a{color:#cfd3dc;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main-nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.header-cta{
+  background:var(--gold);color:var(--ink);font-weight:700;font-size:14px;
+  padding:8px 16px;border-radius:999px;white-space:nowrap;
+}
+.header-cta:hover{background:#ffd369}
+
+/* hero */
+.hero{
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(255,194,71,.22), transparent 70%),
+    radial-gradient(600px 320px at 0% 100%, rgba(200,64,47,.18), transparent 70%),
+    linear-gradient(180deg,#121a2c 0%,#0f1626 100%);
+  color:#f4f2ec;
+  padding:56px 0 60px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center}
+.eyebrow{
+  display:inline-block;font-size:12.5px;letter-spacing:.14em;
+  color:var(--gold);border:1px solid rgba(255,194,71,.45);
+  padding:3px 12px;border-radius:999px;margin-bottom:16px;
+}
+.hero h1{
+  font-size:clamp(26px,4.2vw,42px);
+  line-height:1.28;font-weight:800;letter-spacing:.01em;
+}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{margin-top:16px;color:#c7ccd6;font-size:15.5px;max-width:36em}
+.hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:999px;font-weight:700;font-size:14.5px;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--gold);color:var(--ink);}
+.btn-primary:hover{background:#ffd369}
+.btn-ghost{border-color:rgba(255,255,255,.28);color:#e9e7e0}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap}
+.hero-stats div span{display:block;font-size:12.5px;color:#98a0b0;letter-spacing:.05em}
+.hero-stats div strong{font-size:20px;color:var(--gold);font-weight:800}
+.hero-art{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:20px;
+}
+.hero-art svg{width:100%;height:auto}
+.hero-art figcaption{font-size:12.5px;color:#98a0b0;margin-top:12px;text-align:center}
+
+/* sections */
+section{padding:56px 0}
+.section-head{max-width:44em;margin-bottom:30px}
+.section-head .kicker{
+  font-size:12.5px;letter-spacing:.14em;color:var(--red);font-weight:700;
+}
+.section-head h2{
+  font-size:clamp(21px,2.8vw,27px);font-weight:800;margin-top:6px;color:var(--ink);
+  line-height:1.35;
+}
+.section-head p{margin-top:10px;color:var(--muted);font-size:14.5px}
+
+/* cards */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;transition:.2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(15,22,38,.08)}
+.card .icon{
+  width:42px;height:42px;border-radius:11px;background:#fdf0d0;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.card h3{font-size:16.5px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;position:relative;
+}
+.step::before{
+  counter-increment:s;content:"0" counter(s);
+  font-size:13px;font-weight:800;color:var(--gold-deep);letter-spacing:.08em;
+}
+.step h3{font-size:15.5px;font-weight:800;margin:6px 0 8px;color:var(--ink)}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* list / table */
+.two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+.genre-list{list-style:none;border-top:1px solid var(--line)}
+.genre-list li{
+  display:flex;justify-content:space-between;gap:14px;
+  padding:13px 2px;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.genre-list li b{font-weight:700;color:var(--ink)}
+.genre-list li span{color:var(--muted);font-size:13.5px;text-align:right}
+.note-box{
+  background:#fff8e6;border:1px solid #f2dfae;border-left:4px solid var(--gold-deep);
+  border-radius:10px;padding:18px 20px;font-size:14px;color:#5b4a1f;margin-top:18px;
+}
+
+/* faq */
+.faq{display:grid;gap:14px}
+details{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:0 20px;
+}
+details summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:15px;
+  color:var(--ink);display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--gold-deep);font-size:20px;font-weight:700}
+details[open] summary::after{content:"–"}
+details .answer{padding:0 0 18px;font-size:14px;color:var(--muted)}
+
+/* download band */
+.download-band{
+  background:linear-gradient(135deg,#121a2c,#1d2740);
+  color:#f2f0e9;border-radius:20px;padding:40px;margin:0 0 0;
+  display:flex;justify-content:space-between;gap:28px;align-items:center;flex-wrap:wrap;
+  border:1px solid rgba(255,194,71,.22);
+}
+.download-band h2{font-size:clamp(19px,2.6vw,24px);font-weight:800;line-height:1.4}
+.download-band p{color:#a9b1c0;font-size:14px;margin-top:8px;max-width:36em}
+.btn[aria-disabled="true"]{opacity:.85;cursor:default;pointer-events:none}
+
+/* footer */
+footer{background:var(--ink);color:#9aa2b1;padding:40px 0 30px;font-size:13.5px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer .brand{color:#f3f1ea;margin-bottom:12px}
+footer h4{color:#e7e4dc;font-size:14px;font-weight:700;margin-bottom:12px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:var(--gold)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:18px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#78808f;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{max-width:420px}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr;gap:26px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .header-inner{min-height:auto;padding:12px 0}
+  nav.main-nav{order:3;width:100%;gap:14px;font-size:13.5px}
+  .hero{padding:38px 0 42px}
+  .hero-stats{gap:18px}
+  .card-grid,.steps{grid-template-columns:1fr}
+  .download-band{padding:26px 22px}
+  .footer-grid{grid-template-columns:1fr}
+  section{padding:40px 0}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="人人美剧电脑版">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="6" y="14" width="52" height="34" rx="7" fill="none" stroke="#ffc247" stroke-width="4"/>
+        <path d="M28 25 L43 31 L28 37 Z" fill="#ffc247"/>
+        <path d="M20 55 h24" stroke="#ffc247" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span>人人美剧电脑版<span class="dot">.</span></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#features">电脑观看要点</a>
+      <a href="#steps">使用步骤</a>
+      <a href="#genres">剧集分类</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">下载</a>
+    </nav>
+    <a class="header-cta" href="#download">获取电脑版</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">美剧 · 电脑端观看</span>
+        <h1>人人美剧电脑版</h1>
+        <p class="lead">在电脑上追美剧，屏幕更大、字幕更清楚、多任务更顺手。这里是人人美剧电脑版的主题首页，集中说明电脑端观看的方式、剧集分类入口和常见使用疑问，帮助你把追剧这件事安排得更有条理。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#download">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            下载电脑版
+          </a>
+          <a class="btn btn-ghost" href="#features">先了解观看要点</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>大屏</strong><span>画面与字幕</span></div>
+          <div><strong>分类</strong><span>按题材找剧</span></div>
+          <div><strong>桌面</strong><span>键鼠操作</span></div>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <svg viewBox="0 0 420 300" role="img" aria-label="电脑端观看美剧的示意图">
+          <rect x="40" y="46" width="340" height="200" rx="12" fill="#1b2438" stroke="#2f3b55" stroke-width="3"/>
+          <rect x="58" y="64" width="304" height="150" rx="7" fill="#0e1522"/>
+          <rect x="58" y="64" width="304" height="150" rx="7" fill="url(#g)" opacity=".55"/>
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffc247" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#c8402f" stop-opacity=".3"/>
+            </linearGradient>
+          </defs>
+          <circle cx="210" cy="139" r="30" fill="none" stroke="#ffc247" stroke-width="3"/>
+          <path d="M200 124 L226 139 L200 154 Z" fill="#ffc247"/>
+          <rect x="58" y="196" width="304" height="18" rx="4" fill="#1a2336"/>
+          <rect x="70" y="201" width="120" height="8" rx="4" fill="#ffc247" opacity=".7"/>
+          <rect x="150" y="246" width="120" height="10" rx="5" fill="#2f3b55"/>
+          <rect x="120" y="256" width="180" height="8" rx="4" fill="#26314a"/>
+        </svg>
+        <figcaption>电脑端观剧：更大的画面，更清晰的字幕</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">观看要点</div>
+        <h2>为什么在电脑上看美剧更从容</h2>
+        <p>人人美剧电脑版关注的是电脑这一端的观看体验。与手机相比，桌面环境在画面尺寸、字幕可读性和操作方式上有明显差别，下面几点是选择电脑端的主要理由。</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#c8402f" stroke-width="2"/><path d="M8 21h8" stroke="#c8402f" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>画面与字幕更清楚</h3>
+          <p>大尺寸屏幕让宽画幅画面更有临场感，双语字幕的字号也能保持舒适，长时间观看眼睛负担更小。</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke="#c8402f" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>键鼠操作更顺手</h3>
+          <p>暂停、快退、切换剧集都可以用键盘和鼠标完成，边看边查资料、记录台词也方便许多。</p>
+        </article>
+        <article class="card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#c8402f" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#c8402f" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>追剧进度好管理</h3>
+          <p>按季、按集梳理剧集，在电脑上更容易对照上一集内容，补剧和回顾都不容易看串。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">上手路径</div>
+        <h2>人人美剧电脑版的基本使用步骤</h2>
+        <p>整体流程并不复杂：先准备好电脑端入口，再按题材或剧名找到目标剧集，最后调整好画面与字幕参数开始观看。以下四步覆盖了首次使用最常见的情况。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>准备电脑端入口</h3>
+          <p>在电脑上打开人人美剧电脑版对应的页面或程序，确认系统与浏览器版本较新，避免播放时出现兼容问题。</p>
+        </div>
+        <div class="step">
+          <h3>按题材或剧名查找</h3>
+          <p>已知剧名可直接检索；不确定时从剧情、喜剧、犯罪等分类进入，先看简介再决定是否追。</p>
+        </div>
+        <div class="step">
+          <h3>设置画质与字幕</h3>
+          <p>根据网络情况选择画质，把字幕调到自己能轻松跟上的大小和语种组合，观感会稳定很多。</p>
+        </div>
+        <div class="step">
+          <h3>记录进度继续追</h3>
+          <p>看完一集后记下季数与集数，下一次打开时能快速接上，减少找剧和回看的时间。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="genres">
+    <div class="wrap two-col">
+      <div>
+        <div class="section-head">
+          <div class="kicker">内容导航</div>
+          <h2>按题材挑选想看的剧</h2>
+          <p>美剧题材跨度很大，同一部剧往往同时带有多种标签。下面的分类只作为找剧的起点，具体剧集内容以实际页面展示为准。</p>
+        </div>
+        <ul class="genre-list">
+          <li><b>剧情 / 家庭</b><span>人物关系与生活叙事</span></li>
+          <li><b>犯罪 / 悬疑</b><span>案件推进与线索反转</span></li>
+          <li><b>科幻 / 奇幻</b><span>世界观设定与视觉呈现</span></li>
+          <li><b>喜剧 / 轻喜</b><span>节奏轻快，适合碎片时间</span></li>
+          <li><b>律政 / 医疗</b><span>行业背景下的单元故事</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-head">
+          <div class="kicker">观看习惯</div>
+          <h2>电脑端追剧的几个实用细节</h2>
+        </div>
+        <p style="font-size:14.5px;color:var(--muted)">在电脑上追剧，建议把浏览器窗口固定在一个合适的大小，避免频繁缩放画面。字幕语种可以根据自己的英语水平选择，先中字熟悉剧情，再尝试英文字幕巩固听力。遇到多线叙事的剧集，可以在手边准备一份人物关系记录，后续剧情理解会轻松不少。</p>
+        <div class="note-box">
+          提示：人人美剧电脑版页面所展示的剧集信息与可用状态可能随内容更新而变化，实际以页面当时的呈现为准。观看时请留意所在地区的版权与网络环境要求。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">常见问题</div>
+        <h2>首次使用人人美剧电脑版会关心的事</h2>
+        <p>下面几个问题来自电脑端观看时最常遇到的情况，回答尽量给出可直接执行的思路。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>人人美剧电脑版和手机端有什么不同？</summary>
+          <div class="answer">主要差别在屏幕尺寸和操作方式。电脑端画面更大、字幕更清晰，适合一次看较长时间；手机端胜在随身携带。两者内容方向一致，具体可用功能以各自页面为准。</div>
+        </details>
+        <details>
+          <summary>在电脑上观看需要准备什么？</summary>
+          <div class="answer">一台运行正常的电脑、较新版本的浏览器和稳定的网络即可。建议关闭占用带宽的后台下载任务，播放会更流畅。</div>
+        </details>
+        <details>
+          <summary>字幕看不清或不同步怎么办？</summary>
+          <div class="answer">先调整字幕字号和位置，再检查是否切换了正确的字幕语种。若仍不同步，可以尝试刷新页面或更换画质档位后重新播放。</div>
+        </details>
+        <details>
+          <summary>怎么快速找到上一集没看完的剧？</summary>
+          <div class="answer">记下剧名、季数和集数，下次直接按剧名检索；有观看记录功能时也可从记录入口继续。养成随手记录的习惯能省下不少时间。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="download-band">
+        <div>
+          <h2>获取人人美剧电脑版</h2>
+          <p>下载入口用于后续替换为正式安装地址。在此之前，你可以先通过上方栏目了解电脑端的观看方式、剧集分类与常见问题，为安装后的使用做好准备。</p>
+        </div>
+        <a class="btn btn-primary" href="#" download data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true" width="30" height="30">
+            <rect x="6" y="14" width="52" height="34" rx="7" fill="none" stroke="#ffc247" stroke-width="4"/>
+            <path d="M28 25 L43 31 L28 37 Z" fill="#ffc247"/>
+            <path d="M20 55 h24" stroke="#ffc247" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span>人人美剧电脑版</span>
+        </div>
+        <p style="max-width:30em">人人美剧电脑版主题首页，围绕电脑端美剧观看整理观看要点、使用步骤、剧集分类与常见问题，帮助访问者更快进入追剧状态。</p>
+      </div>
+      <div>
+        <h4>页面栏目</h4>
+        <ul>
+          <li><a href="#features">电脑观看要点</a></li>
+          <li><a href="#steps">使用步骤</a></li>
+          <li><a href="#genres">剧集分类</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li><a href="#download">下载入口</a></li>
+          <li><a href="#top">回到顶部</a></li>
+          <li>剧集状态以页面当时为准</li>
+          <li>请遵守所在地版权规定</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 人人美剧电脑版 · 主题首页</span>
+      <span>内容仅供观看参考，剧集信息随更新变化</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
